@@ -93,8 +93,8 @@ body {
 	font-size: 20px;
 }
 
-.logo1, .logo2, .logo3, .logo4, .logo5, .logo6, 
-.logo7, .logo8, .logo9, .logo10, .logo11, .logo12 {
+.prog-scholarship, .prog-loan, .prog-grant,
+.edu-further, .edu-secondary, .edu-primary {
 	list-style-type: none;
 	position: relative;
 	left: 0; top: 100%;
@@ -105,9 +105,13 @@ body {
     -webkit-filter: grayscale(100%) opacity(0.3);
 }
 
+.active {
+	-webkit-filter: grayscale(0%) opacity(1)
+}
+
 @media only screen and (max-width: 450px) {
-	.logo1, .logo2, .logo3, .logo4, .logo5, .logo6, 
-	.logo7, .logo8, .logo9, .logo10, .logo11, .logo12 {
+	.prog-scholarship, .prog-loan, .prog-grant,
+	.edu-further, .edu-secondary, .edu-primary {
     	width: 44%;
 	}
 	.programme-list, .education-list {

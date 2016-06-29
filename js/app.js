@@ -1,71 +1,84 @@
 $(document).ready(function() {
 
+//open and close programme dropdown//
 $('.programme-list').on('click', function() {
-	$('.programmes').show()
+	if($('.programmes').is(':hidden')) {
+		$('.programmes').show();
+	}
+	else if($('.programmes').is(':visible')) {
+		$('.programmes').hide();
+		$('.programme-list').text('Programme Type');
+	}
 });
 
+//select from programme dropdown//
 $('.programmes li').on('click', function() {
-	var progSelect = $(this).text()
-	console.log(progSelect)
-	$('.programme-list').text(progSelect)
-	$('.programmes').hide()
+	var progSelect = $(this).text();
+	console.log(progSelect);
+	$('.programme-list').text(progSelect);
+	$('.programmes').hide();
 });
 
+//make logos active based on selections//
 $('.search').on('click', function() {
 	if ($('.programme-list').text() === 'Scholarship') {
-		console.log('highlight logo1')
-		$('.logo1, .logo2, .logo7, .logo8').css({"webkit-filter" : "grayscale(0%) opacity(1)"})
-		$('.logo5, .logo6, .logo11, .logo12').css({"webkit-filter" : "grayscale(100%) opacity(0.3)"})
-		$('.logo3, .logo4, .logo9, .logo10').css({"webkit-filter" : "grayscale(100%) opacity(0.3)"})
+		$('.prog-scholarship').addClass('active');
+		$('.prog-loan').removeClass('active');
+		$('.prog-grant').removeClass('active');
 	}
 	else if ($('.programme-list').text() === 'Loan') {
-		console.log('highlight logo2')
-		$('.logo5, .logo6, .logo11, .logo12').css({"webkit-filter" : "grayscale(0%) opacity(1)"})
-		$('.logo1, .logo2, .logo7, .logo8').css({"webkit-filter" : "grayscale(100%) opacity(0.3)"})
-		$('.logo3, .logo4, .logo9, .logo10').css({"webkit-filter" : "grayscale(100%) opacity(0.3)"})
+		$('.prog-loan').addClass('active');
+		$('.prog-scholarship').removeClass('active');
+		$('.prog-grant').removeClass('active');
 	}
 	else if ($('.programme-list').text() === 'Grant') {
-		console.log('highlight logo3')
-		$('.logo3, .logo4, .logo9, .logo10').css({"webkit-filter" : "grayscale(0%) opacity(1)"})
-		$('.logo1, .logo2, .logo7, .logo8').css({"webkit-filter" : "grayscale(100%) opacity(0.3)"})
-		$('.logo5, .logo6, .logo11, .logo12').css({"webkit-filter" : "grayscale(100%) opacity(0.3)"})
+		$('.prog-grant').addClass('active');
+		$('.prog-scholarship').removeClass('active');
+		$('.prog-loan').removeClass('active');
+	}
+	else if ($('.programme-list').text() === 'Programme Type') {
+		$('.prog-scholarship, .prog-loan, .prog-grant').removeClass('active');
 	}
 });
 
+//open and close education dropdown//
 $('.education-list').on('click', function() {
-	$('.educations').show()
+	if($('.educations').is(':hidden')) {
+		$('.educations').show();
+	}
+	else if($('.educations').is(':visible')) {
+		$('.educations').hide();
+		$('.education-list').text('Education Type');
+	}
 });
 
+//select from education dropdown//
 $('.educations li').on('click', function() {
-	var eduSelect = $(this).text()
-	console.log(eduSelect)
-	$('.education-list').text(eduSelect)
-	$('.educations').hide()
+	var eduSelect = $(this).text();
+	console.log(eduSelect);
+	$('.education-list').text(eduSelect);
+	$('.educations').hide();
 });
 
+//make logos active based on selections//
 $('.search').on('click', function() {
 	if ($('.education-list').text() === 'Further') {
-		console.log('highlight logo4')
-		$('.logo5, .logo6, .logo11, .logo12').css({"webkit-filter" : "grayscale(0%) opacity(1)"})
-		$('.logo3, .logo4, .logo9, .logo10').css({"webkit-filter" : "grayscale(100%) opacity(0.3)"})
+		$('.edu-further').addClass('active');
+		$('.edu-secondary').removeClass('active');
 	}
 	else if ($('.education-list').text() === 'Secondary') {
-		console.log('highlight logo5')
-		$('.logo3, .logo4').css({"webkit-filter" : "grayscale(0%) opacity(1)"})
-		$('.logo5, .logo6, .logo11, .logo12').css({"webkit-filter" : "grayscale(100%) opacity(0.3)"})
-		$('.logo9, .logo10').css({"webkit-filter" : "grayscale(100%) opacity(0.3)"})
+		$('.edu-secondary').addClass('active');
+		$('.edu-further').removeClass('active');
+		$('.edu-primary').removeClass('active');
 	}
 	else if ($('.education-list').text() === 'Primary') {
-		console.log('highlight logo6')
-		$('.logo9, .logo10').css({"webkit-filter" : "grayscale(0%) opacity(1)"})
-		$('.logo5, .logo6, .logo11, .logo12').css({"webkit-filter" : "grayscale(100%) opacity(0.3)"})
-		$('.logo3, .logo4').css({"webkit-filter" : "grayscale(100%) opacity(0.3)"})
+		$('.edu-primary').addClass('active');
+		$('.edu-further').removeClass('active');
+		$('.edu-secondary').removeClass('active');
+	}
+	else if ($('.education-list').text() === 'Education Type') {
+		$('.edu-further, .edu-secondary, .edu-primary').removeClass('active');
 	}
 });
-
-/*
-$('.search').on('click', function() {
-	$('.logos li').css({"webkit-filter" : "grayscale(0%) opacity(1)"})
-});*/
 
 });
